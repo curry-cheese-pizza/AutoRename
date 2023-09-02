@@ -97,7 +97,7 @@ var Twitter = {
         const size = [{
             small: "&name=small",
             medium: "&name=medium",
-            large: "&name=large",
+            large: "&name=4096x4096",
             original: "&name=orig"
         }];
         return size.map((x => x))[0];
@@ -105,7 +105,7 @@ var Twitter = {
 
     MediaSrc : ((linkUrl)=>{
         let src = "";
-        src = linkUrl.substring(0, linkUrl.lastIndexOf("&name=") + 0) + Twitter.ImageSizeType().large
+        src = linkUrl.substring(0, linkUrl.lastIndexOf("&name=") + 0) + Twitter.ImageSizeType().original
         return src;
     }),
 
@@ -126,7 +126,7 @@ var Twitter = {
         }
     
         if (url.info_url.includes("&name=")) {
-            updatedUrl = url.info_url.substring(0, url.info_url.lastIndexOf("&name=") + 0) + Twitter.ImageSizeType().large
+            updatedUrl = url.info_url.substring(0, url.info_url.lastIndexOf("&name=") + 0) + Twitter.ImageSizeType().original
         } else {
             updatedUrl = url.info_url;
         }
